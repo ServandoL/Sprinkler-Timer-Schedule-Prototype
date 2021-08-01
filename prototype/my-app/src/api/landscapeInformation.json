@@ -1,0 +1,314 @@
+{
+    "Landscape": {
+        "Turf": {
+            "Cool Season Turf": {
+                "Crop Coefficient": 0.75,
+                "Minimum Root Depth": 4,
+                "Maximum Root Depth": 8
+            },
+            "Warm Season Turf": {
+                "Crop Coefficient": 0.65,
+                "Minimum Root Depth": 6,
+                "Maximum Root Depth": 12
+            },
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        },
+        "Trees": {
+            "Crop Coefficient": 0.75,
+            "Minimum Root Depth": 12,
+            "Maximum Root Depth": 24,
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        },
+        "Shrubs": {
+            "Crop Coefficient": 0.50,
+            "Minimum Root Depth": 6,
+            "Maximum Root Depth": 12,
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        },
+        "Ground Cover": {
+            "Crop Coefficient": 0.60,
+            "Minimum Root Depth": 4,
+            "Maximum Root Depth": 6,
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        },
+        "Mix of Above": {
+            "Crop Coefficient": 0.80,
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        },
+        "Desert Plants": {
+            "Crop Coefficient": 0.35,
+            "Minimum Root Depth": 4,
+            "Maximum Root Depth": 6,
+            "Adjustment Factor": {
+                "Maximum": 1.00,
+                "High": 0.80,
+                "Normal": 0.60,
+                "Low": 0.5,
+                "Minimum": 0.4
+            }
+        }
+    },
+    "Soil": {
+        "Type": {
+            "Coarse": {
+                "Description": "Soil particles are loose. Squeezed in the hand when dry, it fallas apart when pressure is released. Squeezed when moist, it will form a cast, but will crumble easily when touched."
+            },
+            "Medium": {
+                "Description": "Has a moderate amount of fine grains of sand and very little clay. When dry, it can be readily broken. Squeezed when wet, it will form a cast that can be easily handled."
+            },
+            "Fine": {
+                "Description": "When dry, may form hard lumps or clods. When wet, the soil is quite plastic and flexible. When squeezed between the thumb and forefinger, the soil will form a ribbon that will not crack."
+            }
+        },
+        "Clay": {
+            "Soil Water Holding Capacity": 0.18,
+            "Plant Available Water": 0.09,
+            "Soil Texture": "Fine Texture",
+            "Soil Component": {
+                "Sandy Clay": {
+                    "Intake Rate": "Low",
+                    "Water Retention": "High",
+                    "Drainage Erosion": "Drainage"
+                },
+                "Silty Clay": {
+                    "Intake Rate": "Low",
+                    "Water Retention": "High",
+                    "Drainage Erosion": "Sever erosion"
+                }
+            }
+        },
+        "Clay Loam": {
+            "Soil Water Holding Capacity": 0.17,
+            "Plant Available Water": 0.08
+        },
+        "Silt Loam": {
+            "Soil Water Holding Capacity": 0.15,
+            "Plant Available Water": 0.08
+        },
+        "Loam": {
+            "Soil Water Holding Capacity": 0.14,
+            "Plant Available Water": 0.07,
+            "Soil Texture": {
+                "Moderately Coarse": {
+                    "Soil Component": {
+                        "Sandy Loam": {
+                            "Intake Rate": "Moderately high",
+                            "Water Retention": "Moderately low",
+                            "Drainage Erosion": "Low erosion"
+                        },
+                        "Fine Loam": {
+                            "Intake Rate": "Moderately high",
+                            "Water Retention": "Moderately low",
+                            "Drainage Erosion": "Good drainage"
+                        }
+                    }
+                },
+                "Medium Texture": {
+                    "Soil Component": {
+                        "Very fine loam": {
+                            "Intake Rate": "Medium",
+                            "Water Retention": "Moderately high",
+                            "Drainage Erosion": "Moderate drainage"
+                        },
+                        "Loam": {
+                            "Intake Rate": "Medium",
+                            "Water Retention": "Moderately high",
+                            "Drainage Erosion": "Moderate drainage"
+                        },
+                        "Silty Loam": {
+                            "Intake Rate": "Medium",
+                            "Water Retention": "Moderately high",
+                            "Drainage Erosion": "Moderate drainage"
+                        },
+                        "Silt": {
+                            "Intake Rate": "Medium",
+                            "Water Retention": "Moderately high",
+                            "Drainage Erosion": "Moderate drainage"
+                        }
+                    }
+                },
+                "Moderately Fine": {
+                    "Soil Component": {
+                        "Clay Loam": {
+                            "Intake Rate": "Moderately low",
+                            "Water Retention": "High",
+                            "Drainage Erosion": "N/A"
+                        },
+                        "Sandy Clay Loam": {
+                            "Intake Rate": "Moderately low",
+                            "Water Retention": "High",
+                            "Drainage Erosion": "N/A"
+                        },
+                        "Silty Clay Loam": {
+                            "Intake Rate": "Moderately low",
+                            "Water Retention": "High",
+                            "Drainage Erosion": "N/A"
+                        }
+                    }
+                }
+            }
+        },
+        "Sandy Loam": {
+            "Soil Water Holding Capacity": 0.12,
+            "Plant Available Water": 0.06
+        },
+        "Sand": {
+            "Soil Water Holding Capacity": 0.07,
+            "Plant Available Water": 0.04,
+            "Soil Texture": "Coarse Texture",
+            "Soil Component": {
+                "Sand": {
+                    "Intake Rate": "Very high",
+                    "Water Retention": "Very low",
+                    "Drainage Erosion": "Low erosion"
+                },
+                "Loamy Sand": {
+                    "Intake Rate": "High",
+                    "Water Retention": "low",
+                    "Drainage Erosion": "Good drainage"
+                }
+            }
+        }
+    },
+    "Dense Planting Zones": {
+        "Ground Cover, Trees, and Shrubs": {
+            "Base Plant": "Ground Cover",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.9
+            },
+            "Density Factor": {
+                "Low": 0.6,
+                "Average": 1.1,
+                "High": 1.1
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.4
+            }
+        },
+        "Shrubs only": {
+            "Base Plant": "Shrubs",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.9
+            },
+            "Density Factor": {
+                "Low": 0.5,
+                "Average": 1.0,
+                "High": 1.1
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.3
+            }
+        },
+        "Shrubs and Trees": {
+            "Base Plant": "Shrubs",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.9
+            },
+            "Density Factor": {
+                "Low": 0.5,
+                "Average": 1.0,
+                "High": 1.1
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.3
+            }
+        },
+        "Ground Cover and Shrubs": {
+            "Base Plant": "Ground Cover",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.7
+            },
+            "Density Factor": {
+                "Low": 0.5,
+                "Average": 1.0,
+                "High": 1.1
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.3
+            }
+        },
+        "Ground Cover and Trees": {
+            "Base Plant": "Ground Cover",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.9
+            },
+            "Density Factor": {
+                "Low": 0.5,
+                "Average": 1.0,
+                "High": 1.3
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.4
+            }
+        },
+        "Ground Cover only": {
+            "Base Plant": "Ground Cover",
+            "Species Factor": {
+                "Low": 0.2,
+                "Average": 0.5,
+                "High": 0.7
+            },
+            "Density Factor": {
+                "Low": 0.5,
+                "Average": 1.0,
+                "High": 1.1
+            },
+            "Microclimate Factor": {
+                "Lots of Shade": 0.5,
+                "Some Shade": 1.0,
+                "Lots of Sun": 1.2
+            }
+        }
+
+    }
+}

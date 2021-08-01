@@ -18,6 +18,9 @@ export default function Header() {
                 <LinkContainer to="#SmartSchedule">
                     <Nav.Link>Smart Irrigation Schedule</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/calculations">
+                    <Nav.Link>Calculations for Professionals</Nav.Link>
+                </LinkContainer>
             </Nav>
             </Container>
         </Navbar>

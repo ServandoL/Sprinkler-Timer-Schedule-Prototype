@@ -1,0 +1,29 @@
+{
+    "Climate": {
+        "Cool Humid": {
+            "Potential Evapotranspiration": 0.15,
+            "Application Efficiency": 0.95
+        },
+        "Cool Dry": {
+            "Potential Evapotranspiration": 0.20,
+            "Application Efficiency": 0.95
+        },
+        "Warm Humid": {
+            "Potential Evapotranspiration": 0.20,
+            "Application Efficiency": 0.90
+        },
+        "Warm Dry": {
+            "Potential Evapotranspiration": 0.25,
+            "Application Efficiency": 0.90
+        },
+        "Hot Humid": {
+            "Potential Evapotranspiration": 0.30,
+            "Application Efficiency": 0.85
+        },
+        "Hot Dry": {
+            "Potential Evapotranspiration": 0.45,
+            "Application Efficiency": 0.85
+        }
+    }
+    
+}
