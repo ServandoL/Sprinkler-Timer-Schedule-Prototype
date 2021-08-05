@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Cool Humid",
+        "Potential Evapotranspiration": 0.20,
+        "Application Efficiency": 0.95
+    },
+    {
+        "id": 2,
+        "name": "Cool Dry",
+        "Potential Evapotranspiration": 0.15,
+        "Application Efficiency": 0.95
+    },
+    {
+        "id": 3,
+        "name": "Warm Humid",
+        "Potential Evapotranspiration": 0.20,
+        "Application Efficiency": 0.90
+    },
+    {
+        "id": 4,
+        "name": "Warm Dry",
+        "Potential Evapotranspiration": 0.25,
+        "Application Efficiency": 0.90
+    },
+    {
+        "id": 5,
+        "name": "Hot Humid",
+        "Potential Evapotranspiration": 0.30,
+        "Application Efficiency": 0.85
+    },
+    {
+        "id": 6,
+        "name": "Hot Dry",
+        "Potential Evapotranspiration": 0.45,
+        "Application Efficiency": 0.85
+    }
+]

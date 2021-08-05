@@ -1,23 +1,22 @@
-{
+
+[{
     "Landscape": {
-        "Turf": {
-            "Cool Season Turf": {
-                "Crop Coefficient": 0.75,
-                "Minimum Root Depth": 4,
-                "Maximum Root Depth": 8
-            },
-            "Warm Season Turf": {
-                "Crop Coefficient": 0.65,
-                "Minimum Root Depth": 6,
-                "Maximum Root Depth": 12
-            },
-            "Adjustment Factor": {
-                "Maximum": 1.00,
-                "High": 0.80,
-                "Normal": 0.60,
-                "Low": 0.5,
-                "Minimum": 0.4
-            }
+        "Cool Season Turf": {
+            "Crop Coefficient": 0.75,
+            "Minimum Root Depth": 4,
+            "Maximum Root Depth": 8
+        },
+        "Warm Season Turf": {
+            "Crop Coefficient": 0.65,
+            "Minimum Root Depth": 6,
+            "Maximum Root Depth": 12
+        },
+        "Adjustment Factor": {
+            "Maximum": 1.00,
+            "High": 0.80,
+            "Normal": 0.60,
+            "Low": 0.5,
+            "Minimum": 0.4
         },
         "Trees": {
             "Crop Coefficient": 0.75,
@@ -309,6 +308,5 @@
                 "Lots of Sun": 1.2
             }
         }
-
     }
-}
+}]

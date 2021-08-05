@@ -1,4 +1,4 @@
-{
+[{
     "Climate": {
         "Cool Humid": {
             "Potential Evapotranspiration": 0.15,
@@ -26,4 +26,4 @@
         }
     }
     
-}
+}]

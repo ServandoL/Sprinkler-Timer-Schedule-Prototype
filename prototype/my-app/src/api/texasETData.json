@@ -1,5 +1,7 @@
-{
-    "Abilene": {
+[
+    {
+        "id": 1,
+        "City": "Abilene",
         "Jan": 2.08,
         "Feb": 2.57,
         "Mar": 4.14,
@@ -13,7 +15,9 @@
         "Nov": 2.67,
         "Dec": 2.08
     },
-    "Amarillo": {
+    {
+        "id": 2,
+        "City": "Amarillo",
         "Jan": 1.84,
         "Feb": 2.27,
         "Mar": 3.73,
@@ -27,7 +31,9 @@
         "Nov": 2.40,
         "Dec": 1.78
     },
-    "Austin": {
+    {
+        "id": 3,
+        "City": "Austin",
         "Jan": 2.27,
         "Feb": 2.72,
         "Mar": 4.34,
@@ -41,7 +47,9 @@
         "Nov": 2.74,
         "Dec": 2.21
     },
-    "Brownsville": {
+    {
+        "id": 4,
+        "City": "Brownsville",
         "Jan": 2.65,
         "Feb": 3.03,
         "Mar": 4.48,
@@ -55,7 +63,9 @@
         "Nov": 3.01,
         "Dec": 2.59
     },
-    "College Station": {
+    {
+        "id": 5,
+        "City": "College Station",
         "Jan": 2.20,
         "Feb": 2.71,
         "Mar": 4.22,
@@ -67,10 +77,11 @@
         "Sep": 5.60,
         "Oct": 4.30,
         "Nov": 2.80,
-
         "Dec": 2.20
     },
-    "Corpus Christi": {
+    {
+        "id": 6,
+        "City": "Corpus Chrisit",
         "Jan": 2.42,
         "Feb": 2.95,
         "Mar": 4.28 ,
@@ -84,7 +95,9 @@
         "Nov": 3.01,
         "Dec": 2.59
     },
-    "Dallas / Ft Worth": {
+    {
+        "id": 7,
+        "City": "Dallas / Ft Worth",
         "Jan": 2.00,
         "Feb": 2.46,
         "Mar": 3.96,
@@ -98,7 +111,9 @@
         "Nov": 2.59,
         "Dec": 2.10
     },
-    "Del Rio": {
+    {
+        "id": 8,
+        "City": "Del Rio",
         "Jan": 2.47,
         "Feb": 3.01,
         "Mar": 4.76,
@@ -112,7 +127,9 @@
         "Nov": 2.91,
         "Dec": 2.36
     },
-    "El Paso": {
+    {
+        "id": 9,
+        "City": "El Paso",
         "Jan": 2.74,
         "Feb": 3.53,
         "Mar": 6.07,
@@ -126,7 +143,9 @@
         "Nov": 3.58,
         "Dec": 2.49
     },
-    "Galveston": {
+    {
+        "id": 10,
+        "City": "Galveston",
         "Jan": 2.20,
         "Feb": 2.60,
         "Mar": 4.10,
@@ -140,7 +159,9 @@
         "Nov": 2.80,
         "Dec": 2.30
     },
-    "Houston": {
+    {
+        "id": 11,
+        "City": "Houston",
         "Jan": 2.36,
         "Feb": 2.83,
         "Mar": 4.32,
@@ -154,7 +175,9 @@
         "Nov": 2.90,
         "Dec": 2.35
     },
-    "Lubbock": {
+    {
+        "id": 12,
+        "City": "Lubbock",
         "Jan": 2.35,
         "Feb": 2.63,
         "Mar": 4.41,
@@ -168,7 +191,9 @@
         "Nov": 2.61,
         "Dec": 2.33
     },
-    "Midland": {
+    {
+        "id": 13,
+        "City": "Midland",
         "Jan": 2.20,
         "Feb": 2.76,
         "Mar": 4.46,
@@ -182,7 +207,9 @@
         "Nov": 2.78,
         "Dec": 2.16 
     },
-    "Port Arthur": {
+    {
+        "id": 14,
+        "City": "Port Arthur",
         "Jan": 2.25,
         "Feb": 2.63,
         "Mar": 3.95,
@@ -196,7 +223,9 @@
         "Nov": 2.76,
         "Dec": 2.23 
     },
-    "San Angelo": {
+    {
+        "id": 15,
+        "City": "San Angelo",
         "Jan": 2.88,
         "Feb": 3.13,
         "Mar": 5.31,
@@ -210,7 +239,9 @@
         "Nov": 3.37,
         "Dec": 2.54 
     },
-    "San Antonio": {
+    {
+        "id": 16,
+        "City": "San Antonio",
         "Jan": 2.42,
         "Feb": 2.90,
         "Mar": 4.42,
@@ -224,7 +255,9 @@
         "Nov": 2.85,
         "Dec": 2.36 
     },
-    "Victoria": {
+    {
+        "id": 17,
+        "City": "Victoria",
         "Jan": 2.35,
         "Feb": 2.87,
         "Mar": 4.29,
@@ -238,7 +271,9 @@
         "Nov": 2.93,
         "Dec": 2.33
     },
-    "Waco": {
+    {
+        "id": 18,
+        "City": "Waco",
         "Jan": 2.13,
         "Feb": 2.62,
         "Mar": 4.03,
@@ -252,7 +287,9 @@
         "Nov": 2.70,
         "Dec": 2.17
     },
-    "Wichita Falls": {
+    {
+        "id": 19,
+        "City": "Wichita Falls",
         "Jan": 1.94,
         "Feb": 2.46,
         "Mar": 4.07,
@@ -266,4 +303,4 @@
         "Nov": 2.62,
         "Dec": 1.95 
     }
-}
+]
