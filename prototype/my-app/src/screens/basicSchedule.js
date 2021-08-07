@@ -10,14 +10,15 @@ import LandscapeData from "../api/landscapeData.json";
 import ETData from "../api/texasETData.json";
 import SoilData from "../api/soilData.json";
 import RuntimeModal from "../components/RuntimeModal";
+import Accordion from "react-bootstrap/Accordion";
 
 export default function Home() {
 
     const [show, setShow] = useState(false);
     const [zoneName, setZoneName] = useState("");
-    const [zoneType, setZoneType] = useState({name: "", cropCoefficient: 0, rootDepth: 0});
+    const [zoneType, setZoneType] = useState({ name: "", cropCoefficient: 0, rootDepth: 0 });
     const [sprayHead, setSprayHead] = useState("");
-    const [soilType, setSoilType] = useState({type: "", AWHC: 0, availableWater: 0});
+    const [soilType, setSoilType] = useState({ type: "", AWHC: 0, availableWater: 0 });
     const [exposureType, setExposureType] = useState("");
     const [daysPerWeek, setDaysPerWeek] = useState("");
     const [slope, setSlope] = useState("");
@@ -30,7 +31,9 @@ export default function Home() {
     const [precRate, setPrecRate] = useState("");
     const [gpm, setGpm] = useState("");
     const [city, setCity] = useState({})
+    const [avgRain, setAvgRain] = useState("");
 
+    const changeAvgRain = (event) => setAvgRain(event.target.value);
     const closeModal = () => setShow(false);
     const changeGpm = (event) => setGpm(event.target.value);
     const showModal = () => setShow(true);
@@ -55,12 +58,12 @@ export default function Home() {
         });
     }
     const selectZoneType = (event) => {
-       let values = event.target.value.split(',');
-       setZoneType({
-           name: values[0],
-           cropCoefficient: parseFloat(values[1]),
-           rootDepth: parseFloat(values[2])
-       });
+        let values = event.target.value.split(',');
+        setZoneType({
+            name: values[0],
+            cropCoefficient: parseFloat(values[1]),
+            rootDepth: parseFloat(values[2])
+        });
     }
     const selectSprayHead = (event) => setSprayHead(event.target.value);
     const selectSoilType = (event) => {
@@ -166,7 +169,7 @@ export default function Home() {
                                         <option defaultValue>Choose nearest city...</option>
                                         {
                                             ETData.map(city => (
-                                                <option key={city.id} value={[city.City, city.Jan, city.Feb, city.Mar, city.Apr, city.May, city.Jun, city.Jul, city.Aug, city.Sep, city.Oct, city.Nov, city.Dec]}>{city.City}</option> 
+                                                <option key={city.id} value={[city.City, city.Jan, city.Feb, city.Mar, city.Apr, city.May, city.Jun, city.Jul, city.Aug, city.Sep, city.Oct, city.Nov, city.Dec]}>{city.City}</option>
                                             ))
                                         }
                                     </Form.Select>
@@ -177,44 +180,56 @@ export default function Home() {
                         </fieldset>
                     </Col>
                     <Col md="6">
-                        <fieldset>
-                            <legend>Advanced Settings</legend>
-                            <Form>
-                                <Form.Group className="mb-3" controlId="area">
-                                    <Form.Label>Area (sq/ft)</Form.Label>
-                                    <Form.Control type="text" placeholder="area in square footage" value={area} onChange={changeArea} />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="availableWater">
-                                    <Form.Label>Available Water Holding Capacity (in/in)</Form.Label>
-                                    <Form.Control type="text" placeholder="decimal form greater than 0 and less than 1" value={AWHC} onChange={changeAWHC}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="rootDepth">
-                                    <Form.Label>Root Depth (inches)</Form.Label>
-                                    <Form.Control type="text" placeholder="root depth in inches" value={rootDepth} onChange={changeRootDepth}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="allowableDepletion">
-                                    <Form.Label>Allowable Depletion (decimal percent)</Form.Label>
-                                    <Form.Control type="text" placeholder="ex: 0.50" value={allowableDepletion} onChange={changeAllowableDepletion}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="efficiency">
-                                    <Form.Label>Efficiency (decimal percent)</Form.Label>
-                                    <Form.Control type="text" placeholder="ex: 0.80" value={efficiency} onChange={changeEfficiency}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="cropCoefficient">
-                                    <Form.Label>Crop Coefficient (decimal)</Form.Label>
-                                    <Form.Control type="text" placeholder="decimal form greater than 0 and up to 1" value={cropCoefficient} onChange={changeCropCoefficient}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="precipitationRate">
-                                    <Form.Label>Precipitation Rate (in/hr)</Form.Label>
-                                    <Form.Control type="text" placeholder="ex: 0.83" value={precRate} onChange={changePrecRate}></Form.Control>
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="gpm">
-                                    <Form.Label>Gallons per minute (GPM)</Form.Label>
-                                    <Form.Control type="text" placeholder="ex: 1.8" value={gpm} onChange={changeGpm}/>
-                                </Form.Group>
+                        <Accordion className="my-2" flush>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Advanced Settings</Accordion.Header>
+                                <Accordion.Body className="advanced-settings">
+                                    <Form>
+                                        <Form.Group className="mb-3" controlId="area">
+                                            <Form.Label>Area (sq/ft)</Form.Label>
+                                            <Form.Control type="text" placeholder="area in square footage" value={area} onChange={changeArea} />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="rainfall">
+                                            <Form.Label>Consider monthly rainfall?</Form.Label>
+                                            <Form.Select value={avgRain} onChange={changeAvgRain} aria-label="spraySelector">
+                                                <option defaultValue>Choose one...</option>
+                                                <option key="yes" value="yes">Yes</option>
+                                                <option key="no" value="no">No</option>
+                                            </Form.Select>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="availableWater">
+                                            <Form.Label>Available Water Holding Capacity (in/in)</Form.Label>
+                                            <Form.Control type="text" placeholder="decimal form greater than 0 and less than 1" value={AWHC} onChange={changeAWHC}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="rootDepth">
+                                            <Form.Label>Root Depth (inches)</Form.Label>
+                                            <Form.Control type="text" placeholder="root depth in inches" value={rootDepth} onChange={changeRootDepth}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="allowableDepletion">
+                                            <Form.Label>Allowable Depletion (decimal percent)</Form.Label>
+                                            <Form.Control type="text" placeholder="ex: 0.50" value={allowableDepletion} onChange={changeAllowableDepletion}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="efficiency">
+                                            <Form.Label>Efficiency (decimal percent)</Form.Label>
+                                            <Form.Control type="text" placeholder="ex: 0.80" value={efficiency} onChange={changeEfficiency}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="cropCoefficient">
+                                            <Form.Label>Crop Coefficient (decimal)</Form.Label>
+                                            <Form.Control type="text" placeholder="decimal form greater than 0 and up to 1" value={cropCoefficient} onChange={changeCropCoefficient}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="precipitationRate">
+                                            <Form.Label>Precipitation Rate (in/hr)</Form.Label>
+                                            <Form.Control type="text" placeholder="ex: 0.83" value={precRate} onChange={changePrecRate}></Form.Control>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="gpm">
+                                            <Form.Label>Gallons per minute (GPM)</Form.Label>
+                                            <Form.Control type="text" placeholder="ex: 1.8" value={gpm} onChange={changeGpm} />
+                                        </Form.Group>
 
-                            </Form>
-                        </fieldset>
+                                    </Form>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
                     </Col>
                 </Row>
                 {
@@ -238,6 +253,7 @@ export default function Home() {
                         city={city}
                         wateringdays={daysPerWeek}
                         gpm={gpm}
+                        rainfall={avgRain}
 
                     />
                 }

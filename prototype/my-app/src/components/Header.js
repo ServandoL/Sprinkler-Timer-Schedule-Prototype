@@ -15,9 +15,9 @@ export default function Header() {
                 <LinkContainer to="/basic-schedule">
                     <Nav.Link>Basic Irrigation Schedule</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="#SmartSchedule">
+                {/* <LinkContainer to="#SmartSchedule">
                     <Nav.Link>Smart Irrigation Schedule</Nav.Link>
-                </LinkContainer>
+                </LinkContainer> */}
                 <LinkContainer to="/calculations">
                     <Nav.Link>Calculations for Professionals</Nav.Link>
                 </LinkContainer>

@@ -7,6 +7,11 @@
 
 }
 
+.advanced-settings {
+  background-color: #282c34;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

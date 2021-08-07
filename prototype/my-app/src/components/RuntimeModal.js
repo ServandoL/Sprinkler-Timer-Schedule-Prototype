@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { calculatePrecipitationRate, calculateWaterRequirement_noRain, calculatePlantAvailableWater, calculateIrrigationFrequency, calculateZoneRuneTime } from "../utility/formulas";
+import { calculatePrecipitationRate, calculateWaterRequirement_noRain, calculatePlantAvailableWater, calculateWaterRequirement, calculateIrrigationFrequency, calculateZoneRuneTime } from "../utility/formulas";
 import Table from "react-bootstrap/Table";
 import soilData from "../api/soilData.json";
 import monthlyRainfallData from "../api/texasMonthlyRain.json";
@@ -235,25 +235,25 @@ export default function RuntimeModal(props) {
     }
 
     // Calculates precipitation rate based on sprinkler head types
-    var avgPrecipatationrate;
+    var avgPrecipitationrate;
     if (props.precrate) {
-        avgPrecipatationrate = parseFloat(props.precrate)
+        avgPrecipitationrate = parseFloat(props.precrate)
     }
     else if (props.sprayhead === "Fixed Spray Head") {
-        avgPrecipatationrate = 1.5;
+        avgPrecipitationrate = 1.5;
     } else if (props.sprayhead === "Rotor Head") {
-        avgPrecipatationrate = 0.8;
+        avgPrecipitationrate = 0.8;
     } else if (props.sprayhead === "Rotary Nozzle") {
-        avgPrecipatationrate = 0.4
+        avgPrecipitationrate = 0.4
     } else {
-        avgPrecipatationrate = 0.5
+        avgPrecipitationrate = 0.5
     }
 
     // calculates precipitation rate if area and gpm are input by the user
     if (props.area && props.gpm) {
         let gpm = parseFloat(props.gpm)
         let area = parseFloat(props.area)
-        avgPrecipatationrate = calculatePrecipitationRate(gpm, area)
+        avgPrecipitationrate = calculatePrecipitationRate(gpm, area)
     }
 
     // calculates efficiency based on precipitation rate 
@@ -347,18 +347,36 @@ export default function RuntimeModal(props) {
         }
     })
 
-    //calculate plant water requirement for turf grass for each month
-    Object.keys(props.city).forEach((key, index) => {
-        if (key !== "city") {
-            let monthlyPET = parseFloat(props.city[key]);
-            let cropCoefficient = props.zonetype.cropCoefficient;
-            if (props.cropcoefficnet) {
-                cropCoefficient = parseFloat(props.cropcoefficnet);
+    if (props.rainfall === "yes") {
+        //calculate plant water requirement considering the monthly rain fall
+        Object.keys(props.city).forEach((key, index) => {
+            if (key !== "city") {
+                let monthlyPET = parseFloat(props.city[key]);
+                let cropCoefficient = props.zonetype.cropCoefficient;
+                if (props.cropcoefficnet) {
+                    cropCoefficient = parseFloat(props.cropcoefficnet);
+                }
+                console.log(key, monthlyRainfall[key])
+                let plantReq = calculateWaterRequirement(monthlyPET, cropCoefficient, adjustmentFactor, monthlyRainfall[key]);
+                weeklyPlantRequirement[key] = plantReq / 4; // divide by 4 to get inches per week
             }
-            let plantReq = calculateWaterRequirement_noRain(monthlyPET, cropCoefficient, adjustmentFactor);
-            weeklyPlantRequirement[key] = plantReq / 4; // divide by 4 to get inches per week
-        }
-    })
+        });
+    } else {
+        //calculate plant water requirement wihout considering monthly rainfall
+        Object.keys(props.city).forEach((key, index) => {
+            if (key !== "city") {
+                let monthlyPET = parseFloat(props.city[key]);
+                let cropCoefficient = props.zonetype.cropCoefficient;
+                if (props.cropcoefficnet) {
+                    cropCoefficient = parseFloat(props.cropcoefficnet);
+                }
+                let plantReq = calculateWaterRequirement_noRain(monthlyPET, cropCoefficient, adjustmentFactor);
+                weeklyPlantRequirement[key] = plantReq / 4; // divide by 4 to get inches per week
+            }
+        })
+    }
+
+
 
     // Calculate Irrigation frequency
     Object.keys(weeklyPlantRequirement).forEach(key => {
@@ -367,15 +385,19 @@ export default function RuntimeModal(props) {
 
     // calculate zone run times
     Object.keys(irrigationFreq).forEach(key => {
-        irrigationRuntime[key] = Math.ceil(calculateZoneRuneTime(weeklyPlantRequirement[key], irrigationFreq[key], avgPrecipatationrate));
+        irrigationRuntime[key] = Math.ceil(calculateZoneRuneTime(weeklyPlantRequirement[key], irrigationFreq[key], avgPrecipitationrate));
     })
 
     let cyclesPerDay = Object.keys(irrigationFreq).map((key, index) => {
-        return <td key={index}>{Math.ceil(avgPrecipatationrate / infiltrationRate)}</td>
+        return <td key={index}>{Math.ceil(avgPrecipitationrate / infiltrationRate)}</td>
     });
 
     let plantReq = Object.keys(weeklyPlantRequirement).map((key, index) => {
-        return <td key={index + key}>{weeklyPlantRequirement[key].toFixed(2)}</td>
+        if (weeklyPlantRequirement[key] < 0) {
+            return <td key={index + key}>0.00</td>
+        } else {
+            return <td key={index + key}>{weeklyPlantRequirement[key].toFixed(2)}</td>
+        }
     });
 
     let irrigationDays = Object.keys(irrigationFreq).map((key, index) => {
@@ -384,7 +406,13 @@ export default function RuntimeModal(props) {
 
 
     let runTimes = Object.keys(irrigationRuntime).map((key, index) => {
-        return <td key={index}>{irrigationRuntime[key]}</td>
+        if (irrigationRuntime[key] === Infinity) {
+            return <td key={index}>0</td>
+        }
+        else {
+            return <td key={index}>{irrigationRuntime[key]}</td>
+        }
+
     });
 
     return (
@@ -402,14 +430,17 @@ export default function RuntimeModal(props) {
                     <p>Soil type: {props.soiltype.type}</p>
                     <p>Infiltration rate: {infiltrationRate} in/hr</p>
 
-                    <h5>Zone Rune Time in minutes per irrigation day in {props.city.city}, TX</h5>
+                    {   props.rainfall === "yes" ?
+                        <h5>Zone Rune Time in {props.city.city}, TX considering monthly rainfall</h5> :
+                        <h5>Zone Rune Time in {props.city.city}, TX</h5>
+                    }
                     <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 {props.gpm && props.area ?
-                                    <th>{zoneName} @ {props.gpm} gpm and {avgPrecipatationrate.toFixed(2)} in/hr</th>
+                                    <th>{zoneName} @ {props.gpm} gpm and {avgPrecipitationrate.toFixed(2)} in/hr</th>
                                     :
-                                    <th>{zoneName} @ {avgPrecipatationrate.toFixed(2)} in/hr</th>
+                                    <th>{zoneName} @ {avgPrecipitationrate.toFixed(2)} in/hr</th>
                                 }
                                 <th>Jan</th>
                                 <th>Feb</th>

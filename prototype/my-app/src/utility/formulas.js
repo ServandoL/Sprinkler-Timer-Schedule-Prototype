@@ -44,9 +44,9 @@ export function calculateZoneRuneTime(waterReq, irrigationFreq, precipitationRat
 // avgMonthlyRainfall => average rainfall in the area to be irrgated
 // PET => potential evapotranspiration (inches per month)
 // 0.67 => as much as 67% of long-term rainfall may be considered effective. Effective rainfall refers to the portion of rainfall that is of benefit to the plants.
-// export function calculateWaterRequirement(PET, K_c, adjustmentFactor, avgMonthlyRainfall) {
-//     return (PET * K_c * adjustmentFactor) - (avgMonthlyRainfall * 0.67)
-// }
+export function calculateWaterRequirement(PET, K_c, adjustmentFactor, avgMonthlyRainfall) {
+    return (PET * K_c * adjustmentFactor) - (avgMonthlyRainfall * 0.67)
+}
 
 export function calculateWaterRequirement_noRain(PET, K_c, adjustmentFactor) {
     return PET * K_c * adjustmentFactor
