@@ -149,7 +149,7 @@ export default function Home() {
                                         <option defaultValue>Choose one...</option>
                                         <option key="lots of sun" value="Lots of sun">Lots of sun (6-8 hours of sun)</option>
                                         <option key="some shade" value="Some shade">Some Shade (4-6 hours of sun)</option>
-                                        <option key="lots of shade" value="Lots of shade">Lots of shade (2-4 hours of shade)</option>
+                                        <option key="lots of shade" value="Lots of shade">Lots of shade (2-4 hours of sun)</option>
                                         <option key="mostly shade" value="Mostly shade">Mostly shade (2 or less hours of sun)</option>
                                     </Form.Select>
                                 </Form.Group>
